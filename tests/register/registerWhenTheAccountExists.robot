@@ -1,6 +1,6 @@
 *** Settings ***
 Resource    ../resources/keywords.resource
-Documentation    Cenário de teste que realiza a validação do cadastro
+Documentation    Cenário de teste que verifica se a conta já está cadastrada.
 
 *** Test Cases ***
 Login com sucesso no Ideal Game
