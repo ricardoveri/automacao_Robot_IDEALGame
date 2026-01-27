@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.2.2 (Python 3.13.2 on win32)" generated="2026-01-26T21:19:31.159186" rpa="false" schemaversion="5">
+<suite id="s1" name="projetoRobot" source="C:\projetoRobot">
+<suite id="s1-s1" name="Tests" source="C:\projetoRobot\tests">
+<suite id="s1-s1-s1" name="Login" source="C:\projetoRobot\tests\login">
+<suite id="s1-s1-s1-s1" name="Login" source="C:\projetoRobot\tests\login\login.robot">
+<test id="s1-s1-s1-s1-t1" name="Login com sucesso no Ideal Game" line="6">
+<kw name="Abrir Navegador com a Página do IDEAL Game" owner="keywords">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2026-01-26T21:19:31.482784" level="INFO">Opening browser 'chrome' to base url 'https://idealgame.a4s.dev.br/'.</msg>
+<arg>https://idealgame.a4s.dev.br/</arg>
+<arg>chrome</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2026-01-26T21:19:31.482531" elapsed="3.943956"/>
+</kw>
+<doc>Este teste abre o navegador diretamente no site do IDEAL Game.</doc>
+<status status="PASS" start="2026-01-26T21:19:31.481820" elapsed="3.944846"/>
+</kw>
+<kw name="Trocando Linguagem Para PT BR" owner="keywords">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${button_ptBR_Language}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2026-01-26T21:19:35.427262" elapsed="0.052366"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${login_Screen}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2026-01-26T21:19:35.479847" elapsed="0.014482"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2026-01-26T21:19:37.494806" level="INFO">Slept 2 seconds.</msg>
+<arg>2s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2026-01-26T21:19:35.494502" elapsed="2.000610"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2026-01-26T21:19:37.495566" level="INFO">Clicking button 'xpath=//button[@class="sc-iuUfFv sc-jhZTHU hlcBvO wZiXL"]'.</msg>
+<arg>${button_ptBR_Language}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2026-01-26T21:19:37.495273" elapsed="0.054843"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2026-01-26T21:19:39.551345" level="INFO">Slept 2 seconds.</msg>
+<arg>2s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2026-01-26T21:19:37.550744" elapsed="2.000963"/>
+</kw>
+<doc>Essa Keyword realiza a troca de linguagem de EN para PT BR.</doc>
+<status status="PASS" start="2026-01-26T21:19:35.426942" elapsed="4.124969"/>
+</kw>
+<kw name="Ir Para a Tela de Login" owner="keywords">
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2026-01-26T21:19:39.552849" level="INFO">Clicking button 'xpath=//button[@class="sc-iuUfFv sc-bMTdWJ hlcBvO fJQphg"]'.</msg>
+<arg>${login_Screen}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2026-01-26T21:19:39.552654" elapsed="0.055736"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${input_Email}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2026-01-26T21:19:39.608567" elapsed="0.011786"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${input_Password}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2026-01-26T21:19:39.620517" elapsed="0.011335"/>
+</kw>
+<doc>Esta Keyword entra na tela de login.</doc>
+<status status="PASS" start="2026-01-26T21:19:39.552317" elapsed="0.079663"/>
+</kw>
+<kw name="Preencher Campos de Login e Senha" owner="keywords">
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2026-01-26T21:19:39.633175" level="INFO">Typing text 'ricardo.verissimo@dcx.ufpb.br' into text field 'xpath=//input[@id="email"]'.</msg>
+<arg>${input_Email}</arg>
+<arg>${user_Email}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-01-26T21:19:39.632889" elapsed="0.084044"/>
+</kw>
+<kw name="Input Password" owner="SeleniumLibrary">
+<msg time="2026-01-26T21:19:39.717601" level="INFO">Typing password into text field 'xpath=//input[@id="password"]'.</msg>
+<msg time="2026-01-26T21:19:39.742274" level="INFO">Temporally setting log level to: NONE</msg>
+<arg>${input_Password}</arg>
+<arg>${user_Password}</arg>
+<doc>Types the given password into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-01-26T21:19:39.717162" elapsed="0.060931"/>
+</kw>
+<arg>ricardo.verissimo@dcx.ufpb.br</arg>
+<arg>Trutinha1!.</arg>
+<doc>Este teste realiza um login com sucesso</doc>
+<status status="PASS" start="2026-01-26T21:19:39.632214" elapsed="0.146011"/>
+</kw>
+<kw name="Clicar no botão de Login" owner="keywords">
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2026-01-26T21:19:39.779028" level="INFO">Clicking button 'xpath=//button[@class="sc-iuUfFv sc-epnzzT hlcBvO bvvXMa"]'.</msg>
+<arg>${submit_Login_Button}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2026-01-26T21:19:39.778818" elapsed="0.055744"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2026-01-26T21:19:44.835184" level="INFO">Slept 5 seconds.</msg>
+<arg>5s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2026-01-26T21:19:39.834731" elapsed="5.001182"/>
+</kw>
+<doc>Esta Keyword confirma o login</doc>
+<status status="PASS" start="2026-01-26T21:19:39.778491" elapsed="5.057651"/>
+</kw>
+<kw name="Close Browser" owner="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2026-01-26T21:19:44.836425" elapsed="2.116891"/>
+</kw>
+<doc>Valida se o usuário consegue logar com credenciais válidas</doc>
+<status status="PASS" start="2026-01-26T21:19:31.479637" elapsed="15.473961"/>
+</test>
+<doc>Cenário de teste que valida a página de login do IDEAL Game.</doc>
+<status status="PASS" start="2026-01-26T21:19:31.199028" elapsed="15.759431"/>
+</suite>
+<status status="PASS" start="2026-01-26T21:19:31.196293" elapsed="15.764928"/>
+</suite>
+<status status="PASS" start="2026-01-26T21:19:31.193457" elapsed="15.769881"/>
+</suite>
+<status status="PASS" start="2026-01-26T21:19:31.165730" elapsed="15.801772"/>
+</suite>
+<statistics>
+<total>
+<stat pass="1" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat name="projetoRobot" id="s1" pass="1" fail="0" skip="0">projetoRobot</stat>
+<stat name="Tests" id="s1-s1" pass="1" fail="0" skip="0">projetoRobot.Tests</stat>
+<stat name="Login" id="s1-s1-s1" pass="1" fail="0" skip="0">projetoRobot.Tests.Login</stat>
+<stat name="Login" id="s1-s1-s1-s1" pass="1" fail="0" skip="0">projetoRobot.Tests.Login.Login</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
