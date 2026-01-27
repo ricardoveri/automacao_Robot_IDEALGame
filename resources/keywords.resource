@@ -15,11 +15,13 @@ ${login_Screen}               xpath=//button[@class="sc-iuUfFv sc-bMTdWJ hlcBvO 
 ${registration_Screen}        xpath=//a[@href="/register"]
 ${input_Confirm_Password}     xpath=//input[@id="confirmPassword"]
 ${register_Button}            xpath=//button[@class="sc-iuUfFv sc-epnzzT hlcBvO bvvXMa"]
+${email_Alredy_Exists}        xpath=//p[contains(text(), "This email is already associated")]
 
 # Login
 ${input_Email}                xpath=//input[@id="email"]
 ${input_Password}             xpath=//input[@id="password"]
 ${submit_Login_Button}        xpath=//button[@class="sc-iuUfFv sc-epnzzT hlcBvO bvvXMa"]
+${incorrect_Login}            xpath=//p[contains(text(), "Email or password are incorrect")]
 
 *** Keywords ***
 Abrir Navegador com a Página do IDEAL Game
@@ -51,11 +53,15 @@ Preencher Campos de Login e Senha
     Input Text                       ${input_Email}    ${user_Email}
     Input Password                   ${input_Password}    ${user_Password}
 
-
 Clicar no botão de Login
     [Documentation]    Esta Keyword confirma o login
     Click Button                     ${submit_Login_Button}
     Sleep    5s
+
+Verificar Credenciais
+    [Documentation]    Esta Keyword verifica se as credenciais do Login estão corretas
+    Wait Until Element Is Visible    ${incorrect_Login}
+    Element Text Should Be           ${incorrect_Login}    This email is already associated with an existing account
 
 Clicar no botão de Registrar
     [Documentation]    Esta Keyword confirma o registro
@@ -71,7 +77,11 @@ Ir Para a Tela de Registro
     Wait Until Element Is Visible    ${input_Password}
     Wait Until Element Is Visible    ${input_Confirm_Password}
 
-Verificar
+Verificar Mensagem Email já Associado
+    [Documentation]    Esta Keyword verifica se aparece o aviso de email já existente
+
+    Wait Until Element Is Visible    ${email_Alredy_Exists}
+    Element Text Should Be           ${email_Alredy_Exists}    This email is already associated with an existing account
 
 Preencher Campos de Login, Senha e Confirmar Senha
     [Documentation]    Esta Keyword preenche os campos e confirma o registro

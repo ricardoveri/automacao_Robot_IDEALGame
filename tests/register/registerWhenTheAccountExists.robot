@@ -9,7 +9,8 @@ Login com sucesso no Ideal Game
     Trocando Linguagem Para PT BR
     Ir Para a Tela de Login
     Ir Para a Tela de Registro
-    Preencher Campos de Login, Senha e Confirmar Senha    xxxxxxxxx@dcx.ufpb.br    xxxxxxxxxx    xxxxxxxxxxxx
+    Preencher Campos de Login, Senha e Confirmar Senha    XXXXXXXXX@dcx.ufpb.br    XXXXX    XXXXX
     Clicar no botão de Registrar
+    Verificar Mensagem Email já Associado
 
     Close Browser
