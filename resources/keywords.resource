@@ -4,6 +4,8 @@ Documentation        Este arquivo contem as variáveis e keywords que serão uti
 Library    SeleniumLibrary
 
 *** Variables ***
+# Site
+${url_IDEAL_Game}             https://idealgame.a4s.dev.br/
 
 # Página do Ideal Game
 ${button_ptBR_Language}       xpath=//button[@class="sc-iuUfFv sc-jhZTHU hlcBvO wZiXL"]
@@ -23,11 +25,15 @@ ${input_Password}             xpath=//input[@id="password"]
 ${submit_Login_Button}        xpath=//button[@class="sc-iuUfFv sc-epnzzT hlcBvO bvvXMa"]
 ${incorrect_Login}            xpath=//p[contains(text(), "Email or password are incorrect")]
 
+# Game
+${new_Game_Button}            xpath=//button[contains(text(), "Novo Jogo")]
+${continue_Game_Button}       xpath=//button[contains(text(), "Continuar")]
+
 *** Keywords ***
 Abrir Navegador com a Página do IDEAL Game
     [Documentation]    Este teste abre o navegador diretamente no site do IDEAL Game.
 
-    Open Browser    https://idealgame.a4s.dev.br/    chrome
+    Open Browser    ${url_IDEAL_Game}    chrome
 
 Trocando Linguagem Para PT BR
     [Documentation]    Essa Keyword realiza a troca de linguagem de EN para PT BR.
@@ -39,6 +45,7 @@ Trocando Linguagem Para PT BR
     Click Button                     ${button_ptBR_Language}
     Sleep    2s
 
+# Login
 Ir Para a Tela de Login
     [Documentation]    Esta Keyword entra na tela de login.
 
@@ -58,11 +65,12 @@ Clicar no botão de Login
     Click Button                     ${submit_Login_Button}
     Sleep    5s
 
-Verificar Credenciais
+Verificar Mensagem de Credenciais Inválidas
     [Documentation]    Esta Keyword verifica se as credenciais do Login estão corretas
     Wait Until Element Is Visible    ${incorrect_Login}
-    Element Text Should Be           ${incorrect_Login}    This email is already associated with an existing account
+    Element Text Should Be           ${incorrect_Login}    Email or password are incorrect
 
+# Cadastro
 Clicar no botão de Registrar
     [Documentation]    Esta Keyword confirma o registro
     Click Button                     ${register_Button}
@@ -90,4 +98,23 @@ Preencher Campos de Login, Senha e Confirmar Senha
     Input Text                       ${input_Email}    ${user_Email}
     Input Password                   ${input_Password}    ${user_Password}
     Input Password                   ${input_Confirm_Password}    ${confirm_User_Password}
+
+# Tela após o login
+Verificar Tela Após Realizar o login
+    [Documentation]    Esta Keyword verifica os elementos da tela após realizar o login
+
+    Wait Until Element Is Visible    ${new_Game_Button}
+    Wait Until Element Is Visible    ${continue_Game_Button}
+
+Verificar se o Botão Continuar está ativo
+    [Documentation]    Verifica o estado do botão Continuar. Se houver o atributo 'disabled', ele está inativo.
+    ${status}=    Get Element Attribute    ${continue_Game_Button}    disabled
+    
+    Run Keyword If    '${status}' == 'true'    Log    O jogador não possui progresso salvo.
+    ...    ELSE    Log    O jogador pode continuar a partida.
+
+
+Clicar em Novo Jogo
+    [Documentation]    Esta Keyword clica no botão de novo jogo
+    Click Button                     ${new_Game_Button}
 
