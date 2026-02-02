@@ -29,6 +29,9 @@ ${incorrect_Login}            xpath=//p[contains(text(), "Email or password are 
 ${new_Game_Button}            xpath=//button[contains(text(), "Novo Jogo")]
 ${continue_Game_Button}       xpath=//button[contains(text(), "Continuar")]
 
+# Config
+${card_Selection_Mode}        xpat
+
 *** Keywords ***
 Abrir Navegador com a Página do IDEAL Game
     [Documentation]    Este teste abre o navegador diretamente no site do IDEAL Game.
@@ -113,8 +116,9 @@ Verificar se o Botão Continuar está ativo
     Run Keyword If    '${status}' == 'true'    Log    O jogador não possui progresso salvo.
     ...    ELSE    Log    O jogador pode continuar a partida.
 
-
 Clicar em Novo Jogo
     [Documentation]    Esta Keyword clica no botão de novo jogo
     Click Button                     ${new_Game_Button}
 
+Verificar Tela de Configuração
+    [Documentation]    Verifica os elementos da tela de configuração ao clicar em novo jogo

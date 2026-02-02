@@ -9,5 +9,7 @@ Login com sucesso no Ideal Game
     [Documentation]    Valida se o usuário consegue logar com credenciais válidas
     Trocando Linguagem Para PT BR
     Ir Para a Tela de Login
-    Preencher campos de Login e Senha    XXXXXX    XXXXXXX
+    Preencher campos de Login e Senha    ricardo.verissimo@dcx.ufpb.br    Trutinha1!.
     Clicar no botão de Login
+
+    Sleep    3s
