@@ -5,7 +5,7 @@ Test Setup       Abrir Navegador com a Página do IDEAL Game
 Test Teardown    Close Browser
 
 *** Test Cases ***
-Iniciando um Novo Jogo
+Continuando Jogo Anterior
     [Documentation]    Valida o início de um novo jogo
     Trocando Linguagem Para PT BR
     Ir Para a Tela de Login

@@ -27,7 +27,7 @@ ${incorrect_Login}            xpath=//p[contains(text(), "Email or password are 
 
 # Pré - Config
 ${new_Game_Button}            xpath=//button[contains(text(), "Novo Jogo")]
-${continue_Game_Button}       xpath=//button[contains(text(), "Continuar")]
+${continue_Game_Button}       xpath=//button[contains(text(), "Continuar")] 
 
 # Config
 ${card_Selection_Mode}        xpath=//label[text()="Modo de Seleção de Cartas"]/following-sibling::select
@@ -42,7 +42,7 @@ ${next_Page_Button}           xpath=//button[contains(text(), "Aplicar")]/preced
 ${back_Page_Button}           xpath=//button[contains(text(), "Aplicar")]/preceding::button[2]
 
 # Game
-${pawn_Button}                xpath=//button[@class="sc-dprtRQ sc-hJRrWL sc-kBAPdo kuGJvm iIfJtA brImyB"]
+${move_Pawn}                  xpath=//button[@class="sc-dprtRQ sc-hJRrWL sc-kBAPdo kuGJvm iIfJtA brImyB"]
 ${start_Point_Player_One}     xpath=//img[@alt="Ponto de início"][1]
 ${start_Point_Player_Two}     xpath=//img[@alt="Ponto de início"][2]
 
@@ -139,6 +139,16 @@ Clicar em Novo Jogo
     [Documentation]    Esta Keyword clica no botão de novo jogo
     Click Button                     ${new_Game_Button}
 
+Verificar Tela de Atenção
+    [Documentation]    Verifica a tela de atenção quando tenta iniciar um novo jogo quando já existe um jogo anterior
+
+    Element Should Not Be Visible    xpath=//p[contains(text(), "Tem certeza que quer criar um novo jogo? Isso irá apagar o progresso do jogo anterior.")]
+
+Clicar em Sim, Criar Novo
+    [Documentation]    Esta Keyword clica no botão de criar novo jogo na tela de atenção quando o usuário quer criar um novo jogo já existindo um jogo anterior
+
+    Click Button                     xpath=//button[@class="sc-iuUfFv sc-iwXfZk hlcBvO gULRLH"]
+
 # Configuração
 Verificar Tela de Configuração
     [Documentation]    Verifica os elementos da tela de configuração ao clicar em novo jogo.
@@ -191,8 +201,8 @@ Clicar em Aplicar
 Clicar no Peão
     [Documentation]    Clica no peão
 
-    Wait Until Element Is Visible    ${pawn_Button}
-    Click Button                     ${pawn_Button}
+    Wait Until Element Is Visible    ${move_Pawn}
+    Click Button                     ${move_Pawn}
 
 Mover Para o Primeiro Ponto de Início Jogador Um
     [Documentation]    Move para o primeiro ponto verde
