@@ -33,13 +33,13 @@ ${continue_Game_Button}       xpath=//button[contains(text(), "Continuar")]
 ${card_Selection_Mode}        xpath=//label[text()="Modo de Seleção de Cartas"]/following-sibling::select
 ${number_Of_Players}          xpath=//label[text()="Número de jogadores"]/following-sibling::select
 ${email_Button}               xpath=//button[@class="sc-giBObj janfQs"]
-${selection_Actor}            xpath=//label[text()="Selecionar Ator"]/following-sibling::select
-${selection_Objective}        xpath=//label[text()="Selecionar Objetivo"]/following-sibling::select
+${selection_Actor}            xpath=//label[text()="Selecionar Ator"]/following::select[1]
+${selection_Objective}        xpath=//label[text()="Selecionar Objetivo"]/following::select[1]
 ${input_Name_Player_One}      xpath=//input[@value="Jogador 1"]
-${input_Name_Player_Two}      xpath=//input{@value="Jogador 2"}
+${input_Name_Player_Two}      xpath=//input[@value="Jogador 2"]
 ${apply_Button}               xpath=//button[@class="sc-iuUfFv sc-iwXfZk hlcBvO gULRLH"]
-${back_Page_Button}           xpath=(//button[./svg])[1]
-${next_Page_Button}           xpath=(//button[./svg])[2]
+${next_Page_Button}           xpath=//button[contains(text(), "Aplicar")]/preceding::button[1]
+${back_Page_Button}           xpath=//button[contains(text(), "Aplicar")]/preceding::button[2]
 
 # Game
 ${}
@@ -48,7 +48,7 @@ ${}
 Abrir Navegador com a Página do IDEAL Game
     [Documentation]    Este teste abre o navegador diretamente no site do IDEAL Game.
 
-    Open Browser    ${url_IDEAL_Game}    chrome
+    Open Browser                     ${url_IDEAL_Game}    chrome
 
 Trocando Linguagem Para PT BR
     [Documentation]    Essa Keyword realiza a troca de linguagem de EN para PT BR.
@@ -137,32 +137,44 @@ Verificar Tela de Configuração
     [Documentation]    Verifica os elementos da tela de configuração ao clicar em novo jogo.
     
     Wait Until Element Is Visible    ${card_Selection_Mode}
+    Wait Until Element Is Visible    ${number_Of_Players}
+    Sleep    2
     Wait Until Element Is Visible    ${selection_Actor}
 
 Selecionar Modo Personalizado
     [Documentation]    Em modo de seleção de cartas irá escolher a opção de modo personalizado.
 
-    Select From List By Value        ${card_Selection_Mode}    Personalizado
+    Select From List By Value        ${card_Selection_Mode}    Customized
 
 Selecionar Ator Personalizado Jogador Um
-    [Documentation]    Seleciona o ator do jogador um
+    [Documentation]    Seleciona o ator do jogador um - Protetor da natureza
 
-    Select From List By Value        ${selection_Actor}        Protetor da natureza
+    Select From List By Value        ${selection_Actor}        AG1
 
 Selecionar Objetivo Jogador Um
-    [Documentation]    Seleciona o objetivo do jogador um
+    [Documentation]    Seleciona o objetivo do jogador um - Culturas Sustentáveis
 
-    Select From List By Value        ${selection_Objective}    Culturas sustentáveis
+    Select From List By Value        ${selection_Objective}    G2
+
+Clicar no Botão de Próxima Página
+    [Documentation]    Clica no botão de próxima página para configurar o jogador dois
+
+    Click Button                     ${next_Page_Button}
+
+Clicar no Botão de Voltar Página
+    [Documentation]    Clica no botão de voltar a página para o jogador um
+
+    Click Button                     ${back_Page_Button}
 
 Selecionar Ator Jogador Dois
-    [Documentation]    Selecionar o ator do jogador dois       
+    [Documentation]    Selecionar o ator do jogador dois - Agricultor sustentável
 
-    Select From List By Value        ${selection_Objective}    Agricultor sustentável
+    Select From List By Value        ${selection_Actor}    AG3
 
 Selecionar Objetivo Jogador Dois
-    [Documentation]    Seleciona o objetivo do jogador dois
+    [Documentation]    Seleciona o objetivo do jogador dois - Florestas
 
-    Select From List By Value        ${selection_Objective}    Florestas
+    Select From List By Value        ${selection_Objective}    G3
 
 Clicar em Aplicar
     [Documentation]    Clicar no botão de aplicar na tela de configuração
