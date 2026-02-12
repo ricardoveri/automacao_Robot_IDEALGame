@@ -42,7 +42,9 @@ ${next_Page_Button}           xpath=//button[contains(text(), "Aplicar")]/preced
 ${back_Page_Button}           xpath=//button[contains(text(), "Aplicar")]/preceding::button[2]
 
 # Game
-${}
+${pawn_Button}                xpath=//button[@class="sc-dprtRQ sc-hJRrWL sc-kBAPdo kuGJvm iIfJtA brImyB"]
+${start_Point_Player_One}     xpath=//img[@alt="Ponto de início"][1]
+${start_Point_Player_Two}     xpath=//img[@alt="Ponto de início"][2]
 
 *** Keywords ***
 Abrir Navegador com a Página do IDEAL Game
@@ -177,6 +179,21 @@ Selecionar Objetivo Jogador Dois
     Select From List By Value        ${selection_Objective}    G3
 
 Clicar em Aplicar
-    [Documentation]    Clicar no botão de aplicar na tela de configuração
+    [Documentation]    Clica no botão de aplicar na tela de configuração
 
     Click Button                     ${apply_Button}
+
+Clicar no Peão
+    [Documentation]    Clica no peão
+
+    Click Button                     ${pawn_Button}
+
+Mover Para o Primeiro Ponto de Início Jogador Um
+    [Documentation]    Move para o primeiro ponto verde
+
+    Click Element                    ${start_Point_Player_One}
+
+Mover Para o Primeiro Ponto de Início Jogador Dois
+    [Documentation]    Move para outro ponto verde
+
+    Click Element                    ${start_Point_Player_Two}

@@ -1,0 +1,301 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.2.2 (Python 3.13.2 on win32)" generated="2026-02-12T10:55:42.482028" rpa="false" schemaversion="5">
+<suite id="s1" name="projetoRobot" source="C:\projetoRobot">
+<suite id="s1-s1" name="Tests" source="C:\projetoRobot\tests">
+<suite id="s1-s1-s1" name="Game" source="C:\projetoRobot\tests\game">
+<suite id="s1-s1-s1-s1" name="positioningFirstPawn" source="C:\projetoRobot\tests\game\positioningFirstPawn.robot">
+<test id="s1-s1-s1-s1-t1" name="Iniciando um Novo Jogo" line="8">
+<kw name="Abrir Navegador com a Página do IDEAL Game" owner="keywords" type="SETUP">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2026-02-12T10:55:42.808477" level="INFO">Opening browser 'chrome' to base url 'https://idealgame.a4s.dev.br/'.</msg>
+<arg>${url_IDEAL_Game}</arg>
+<arg>chrome</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2026-02-12T10:55:42.808164" elapsed="3.762593"/>
+</kw>
+<doc>Este teste abre o navegador diretamente no site do IDEAL Game.</doc>
+<status status="PASS" start="2026-02-12T10:55:42.807493" elapsed="3.763509"/>
+</kw>
+<kw name="Trocando Linguagem Para PT BR" owner="keywords">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${button_ptBR_Language}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2026-02-12T10:55:46.571813" elapsed="0.071234"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${login_Screen}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2026-02-12T10:55:46.643230" elapsed="0.013913"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2026-02-12T10:55:48.657881" level="INFO">Slept 2 seconds.</msg>
+<arg>2s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2026-02-12T10:55:46.657471" elapsed="2.000856"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2026-02-12T10:55:48.659105" level="INFO">Clicking button 'xpath=//button[@class="sc-iuUfFv sc-jhZTHU hlcBvO wZiXL"]'.</msg>
+<arg>${button_ptBR_Language}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2026-02-12T10:55:48.658541" elapsed="0.052673"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2026-02-12T10:55:50.713781" level="INFO">Slept 2 seconds.</msg>
+<arg>2s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2026-02-12T10:55:48.711385" elapsed="2.002632"/>
+</kw>
+<doc>Essa Keyword realiza a troca de linguagem de EN para PT BR.</doc>
+<status status="PASS" start="2026-02-12T10:55:46.571396" elapsed="4.142791"/>
+</kw>
+<kw name="Ir Para a Tela de Login" owner="keywords">
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2026-02-12T10:55:50.715286" level="INFO">Clicking button 'xpath=//button[@class="sc-iuUfFv sc-bMTdWJ hlcBvO fJQphg"]'.</msg>
+<arg>${login_Screen}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2026-02-12T10:55:50.714978" elapsed="0.068391"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${input_Email}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2026-02-12T10:55:50.783537" elapsed="0.013498"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${input_Password}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2026-02-12T10:55:50.797208" elapsed="0.009477"/>
+</kw>
+<doc>Esta Keyword entra na tela de login.</doc>
+<status status="PASS" start="2026-02-12T10:55:50.714599" elapsed="0.092216"/>
+</kw>
+<kw name="Preencher Campos de Login e Senha" owner="keywords">
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2026-02-12T10:55:50.807671" level="INFO">Typing text 'ricardo.verissimo@dcx.ufpb.br' into text field 'xpath=//input[@id="email"]'.</msg>
+<arg>${input_Email}</arg>
+<arg>${user_Email}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-02-12T10:55:50.807460" elapsed="0.071696"/>
+</kw>
+<kw name="Input Password" owner="SeleniumLibrary">
+<msg time="2026-02-12T10:55:50.879693" level="INFO">Typing password into text field 'xpath=//input[@id="password"]'.</msg>
+<msg time="2026-02-12T10:55:50.898451" level="INFO">Temporally setting log level to: NONE</msg>
+<arg>${input_Password}</arg>
+<arg>${user_Password}</arg>
+<doc>Types the given password into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-02-12T10:55:50.879374" elapsed="0.048980"/>
+</kw>
+<arg>ricardo.verissimo@dcx.ufpb.br</arg>
+<arg>Trutinha1!.</arg>
+<doc>Este teste realiza um login com sucesso</doc>
+<status status="PASS" start="2026-02-12T10:55:50.807090" elapsed="0.121395"/>
+</kw>
+<kw name="Clicar no botão de Login" owner="keywords">
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2026-02-12T10:55:50.929263" level="INFO">Clicking button 'xpath=//button[@class="sc-iuUfFv sc-epnzzT hlcBvO bvvXMa"]'.</msg>
+<arg>${submit_Login_Button}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2026-02-12T10:55:50.929058" elapsed="0.051313"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2026-02-12T10:55:55.981305" level="INFO">Slept 5 seconds.</msg>
+<arg>5s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2026-02-12T10:55:50.980543" elapsed="5.001043"/>
+</kw>
+<doc>Esta Keyword confirma o login</doc>
+<status status="PASS" start="2026-02-12T10:55:50.928767" elapsed="5.052937"/>
+</kw>
+<kw name="Verificar Tela Após Realizar o login" owner="keywords">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${new_Game_Button}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2026-02-12T10:55:55.982433" elapsed="0.010631"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${continue_Game_Button}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2026-02-12T10:55:55.993227" elapsed="0.009059"/>
+</kw>
+<doc>Esta Keyword verifica os elementos da tela após realizar o login</doc>
+<status status="PASS" start="2026-02-12T10:55:55.982056" elapsed="0.020351"/>
+</kw>
+<kw name="Verificar se o Botão Continuar está ativo" owner="keywords">
+<kw name="Get Element Attribute" owner="SeleniumLibrary">
+<msg time="2026-02-12T10:55:56.010066" level="INFO">${status} = true</msg>
+<var>${status}</var>
+<arg>${continue_Game_Button}</arg>
+<arg>disabled</arg>
+<doc>Returns the value of ``attribute`` from the element ``locator``.</doc>
+<status status="PASS" start="2026-02-12T10:55:56.002978" elapsed="0.007211"/>
+</kw>
+<kw name="Run Keyword If" owner="BuiltIn">
+<kw name="Log" owner="BuiltIn">
+<msg time="2026-02-12T10:55:56.010882" level="INFO">O jogador não possui progresso salvo.</msg>
+<arg>O jogador não possui progresso salvo.</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2026-02-12T10:55:56.010730" elapsed="0.000290"/>
+</kw>
+<arg>'${status}' == 'true'</arg>
+<arg>Log</arg>
+<arg>O jogador não possui progresso salvo.</arg>
+<arg>ELSE</arg>
+<arg>Log</arg>
+<arg>O jogador pode continuar a partida.</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2026-02-12T10:55:56.010354" elapsed="0.000761"/>
+</kw>
+<doc>Verifica o estado do botão Continuar. Se houver o atributo 'disabled', ele está inativo.</doc>
+<status status="PASS" start="2026-02-12T10:55:56.002660" elapsed="0.008542"/>
+</kw>
+<kw name="Clicar em Novo Jogo" owner="keywords">
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2026-02-12T10:55:56.011895" level="INFO">Clicking button 'xpath=//button[contains(text(), "Novo Jogo")]'.</msg>
+<arg>${new_Game_Button}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2026-02-12T10:55:56.011698" elapsed="0.051845"/>
+</kw>
+<doc>Esta Keyword clica no botão de novo jogo</doc>
+<status status="PASS" start="2026-02-12T10:55:56.011452" elapsed="0.052509"/>
+</kw>
+<kw name="Selecionar Modo Personalizado" owner="keywords">
+<kw name="Select From List By Value" owner="SeleniumLibrary">
+<msg time="2026-02-12T10:55:56.065095" level="INFO">Selecting options from selection list 'xpath=//label[text()="Modo de Seleção de Cartas"]/following-sibling::select' by value Customized.</msg>
+<arg>${card_Selection_Mode}</arg>
+<arg>Customized</arg>
+<doc>Selects options from selection list ``locator`` by ``values``.</doc>
+<status status="PASS" start="2026-02-12T10:55:56.064774" elapsed="0.048852"/>
+</kw>
+<doc>Em modo de seleção de cartas irá escolher a opção de modo personalizado.</doc>
+<status status="PASS" start="2026-02-12T10:55:56.064343" elapsed="0.049419"/>
+</kw>
+<kw name="Verificar Tela de Configuração" owner="keywords">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${card_Selection_Mode}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2026-02-12T10:55:56.114496" elapsed="0.009965"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${number_Of_Players}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2026-02-12T10:55:56.124716" elapsed="0.012895"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2026-02-12T10:55:58.138616" level="INFO">Slept 2 seconds.</msg>
+<arg>2</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2026-02-12T10:55:56.137790" elapsed="2.001097"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${selection_Actor}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2026-02-12T10:55:58.139038" elapsed="0.011707"/>
+</kw>
+<doc>Verifica os elementos da tela de configuração ao clicar em novo jogo.</doc>
+<status status="PASS" start="2026-02-12T10:55:56.114189" elapsed="2.036688"/>
+</kw>
+<kw name="Selecionar Ator Personalizado Jogador Um" owner="keywords">
+<kw name="Select From List By Value" owner="SeleniumLibrary">
+<msg time="2026-02-12T10:55:58.151632" level="INFO">Selecting options from selection list 'xpath=//label[text()="Selecionar Ator"]/following::select[1]' by value AG1.</msg>
+<arg>${selection_Actor}</arg>
+<arg>AG1</arg>
+<doc>Selects options from selection list ``locator`` by ``values``.</doc>
+<status status="PASS" start="2026-02-12T10:55:58.151419" elapsed="0.036812"/>
+</kw>
+<doc>Seleciona o ator do jogador um - Protetor da natureza</doc>
+<status status="PASS" start="2026-02-12T10:55:58.151131" elapsed="0.037247"/>
+</kw>
+<kw name="Clicar no Botão de Próxima Página" owner="keywords">
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2026-02-12T10:55:58.189388" level="INFO">Clicking button 'xpath=//button[contains(text(), "Aplicar")]/preceding::button[1]'.</msg>
+<arg>${next_Page_Button}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2026-02-12T10:55:58.189038" elapsed="0.047541"/>
+</kw>
+<doc>Clica no botão de próxima página para configurar o jogador dois</doc>
+<status status="PASS" start="2026-02-12T10:55:58.188646" elapsed="0.048066"/>
+</kw>
+<kw name="Selecionar Ator Jogador Dois" owner="keywords">
+<kw name="Select From List By Value" owner="SeleniumLibrary">
+<msg time="2026-02-12T10:55:58.237425" level="INFO">Selecting options from selection list 'xpath=//label[text()="Selecionar Ator"]/following::select[1]' by value AG3.</msg>
+<arg>${selection_Actor}</arg>
+<arg>AG3</arg>
+<doc>Selects options from selection list ``locator`` by ``values``.</doc>
+<status status="PASS" start="2026-02-12T10:55:58.237224" elapsed="0.045844"/>
+</kw>
+<doc>Selecionar o ator do jogador dois - Agricultor sustentável</doc>
+<status status="PASS" start="2026-02-12T10:55:58.236943" elapsed="0.046336"/>
+</kw>
+<kw name="Selecionar Objetivo Jogador Dois" owner="keywords">
+<kw name="Select From List By Value" owner="SeleniumLibrary">
+<msg time="2026-02-12T10:55:58.284537" level="INFO">Selecting options from selection list 'xpath=//label[text()="Selecionar Objetivo"]/following::select[1]' by value G3.</msg>
+<arg>${selection_Objective}</arg>
+<arg>G3</arg>
+<doc>Selects options from selection list ``locator`` by ``values``.</doc>
+<status status="PASS" start="2026-02-12T10:55:58.284148" elapsed="0.044683"/>
+</kw>
+<doc>Seleciona o objetivo do jogador dois - Florestas</doc>
+<status status="PASS" start="2026-02-12T10:55:58.283703" elapsed="0.045279"/>
+</kw>
+<kw name="Clicar em Aplicar" owner="keywords">
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2026-02-12T10:55:58.329688" level="INFO">Clicking button 'xpath=//button[@class="sc-iuUfFv sc-iwXfZk hlcBvO gULRLH"]'.</msg>
+<arg>${apply_Button}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2026-02-12T10:55:58.329495" elapsed="0.054857"/>
+</kw>
+<doc>Clicar no botão de aplicar na tela de configuração</doc>
+<status status="PASS" start="2026-02-12T10:55:58.329214" elapsed="0.055315"/>
+</kw>
+<kw name="Clicar no Peão" owner="keywords">
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2026-02-12T10:55:58.385762" level="INFO">Clicking button 'xpath=//button[@class="sc-dprtRQ sc-hJRrWL sc-kBAPdo kuGJvm iIfJtA brImyB"]'.</msg>
+<msg time="2026-02-12T10:55:58.514715" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-1.png"&gt;&lt;img src="selenium-screenshot-1.png" width="800px"&gt;&lt;/a&gt;</msg>
+<msg time="2026-02-12T10:55:58.514949" level="FAIL">Button with locator 'xpath=//button[@class="sc-dprtRQ sc-hJRrWL sc-kBAPdo kuGJvm iIfJtA brImyB"]' not found.</msg>
+<arg>${pawn_Button}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="FAIL" start="2026-02-12T10:55:58.385391" elapsed="0.180277">Button with locator 'xpath=//button[@class="sc-dprtRQ sc-hJRrWL sc-kBAPdo kuGJvm iIfJtA brImyB"]' not found.</status>
+</kw>
+<doc>Clicar no botão de peão</doc>
+<status status="FAIL" start="2026-02-12T10:55:58.384894" elapsed="0.180954">Button with locator 'xpath=//button[@class="sc-dprtRQ sc-hJRrWL sc-kBAPdo kuGJvm iIfJtA brImyB"]' not found.</status>
+</kw>
+<kw name="Mover Para o Primeiro Ponto de Início Jogador Um" owner="keywords">
+<doc>Clicar no primeiro ponto verde de início</doc>
+<status status="NOT RUN" start="2026-02-12T10:55:58.566143" elapsed="0.000127"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<arg>3s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="NOT RUN" start="2026-02-12T10:55:58.566569" elapsed="0.000241"/>
+</kw>
+<kw name="Close Browser" owner="SeleniumLibrary" type="TEARDOWN">
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2026-02-12T10:55:58.567296" elapsed="2.129111"/>
+</kw>
+<doc>Valida o início de um novo jogo</doc>
+<status status="FAIL" start="2026-02-12T10:55:42.805138" elapsed="17.891519">Button with locator 'xpath=//button[@class="sc-dprtRQ sc-hJRrWL sc-kBAPdo kuGJvm iIfJtA brImyB"]' not found.</status>
+</test>
+<doc>Cenário que valida a movimentação da primeira peça</doc>
+<status status="FAIL" start="2026-02-12T10:55:42.527971" elapsed="18.175533"/>
+</suite>
+<status status="FAIL" start="2026-02-12T10:55:42.523967" elapsed="18.182420"/>
+</suite>
+<status status="FAIL" start="2026-02-12T10:55:42.519485" elapsed="18.189083"/>
+</suite>
+<status status="FAIL" start="2026-02-12T10:55:42.487268" elapsed="18.224288"/>
+</suite>
+<statistics>
+<total>
+<stat pass="0" fail="1" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat name="projetoRobot" id="s1" pass="0" fail="1" skip="0">projetoRobot</stat>
+<stat name="Tests" id="s1-s1" pass="0" fail="1" skip="0">projetoRobot.Tests</stat>
+<stat name="Game" id="s1-s1-s1" pass="0" fail="1" skip="0">projetoRobot.Tests.Game</stat>
+<stat name="positioningFirstPawn" id="s1-s1-s1-s1" pass="0" fail="1" skip="0">projetoRobot.Tests.Game.positioningFirstPawn</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
