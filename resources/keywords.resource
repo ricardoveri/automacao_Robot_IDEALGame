@@ -130,6 +130,11 @@ Verificar se o Botão Continuar está ativo
     Run Keyword If    '${status}' == 'true'    Log    O jogador não possui progresso salvo.
     ...    ELSE    Log    O jogador pode continuar a partida.
 
+Clicar em Continuar
+    [Documentation]    Esta keyword clica no botão de continuar quando o mesmo estiver ativo
+
+    Click Button                     ${continue_Game_Button}
+
 Clicar em Novo Jogo
     [Documentation]    Esta Keyword clica no botão de novo jogo
     Click Button                     ${new_Game_Button}
@@ -186,6 +191,7 @@ Clicar em Aplicar
 Clicar no Peão
     [Documentation]    Clica no peão
 
+    Wait Until Element Is Visible    ${pawn_Button}
     Click Button                     ${pawn_Button}
 
 Mover Para o Primeiro Ponto de Início Jogador Um
