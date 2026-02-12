@@ -25,12 +25,24 @@ ${input_Password}             xpath=//input[@id="password"]
 ${submit_Login_Button}        xpath=//button[@class="sc-iuUfFv sc-epnzzT hlcBvO bvvXMa"]
 ${incorrect_Login}            xpath=//p[contains(text(), "Email or password are incorrect")]
 
-# Game
+# Pré - Config
 ${new_Game_Button}            xpath=//button[contains(text(), "Novo Jogo")]
 ${continue_Game_Button}       xpath=//button[contains(text(), "Continuar")]
 
 # Config
-${card_Selection_Mode}        xpat
+${card_Selection_Mode}        xpath=//label[text()="Modo de Seleção de Cartas"]/following-sibling::select
+${number_Of_Players}          xpath=//label[text()="Número de jogadores"]/following-sibling::select
+${email_Button}               xpath=//button[@class="sc-giBObj janfQs"]
+${selection_Actor}            xpath=//label[text()="Selecionar Ator"]/following-sibling::select
+${selection_Objective}        xpath=//label[text()="Selecionar Objetivo"]/following-sibling::select
+${input_Name_Player_One}      xpath=//input[@value="Jogador 1"]
+${input_Name_Player_Two}      xpath=//input{@value="Jogador 2"}
+${apply_Button}               xpath=//button[@class="sc-iuUfFv sc-iwXfZk hlcBvO gULRLH"]
+${back_Page_Button}           xpath=(//button[./svg])[1]
+${next_Page_Button}           xpath=(//button[./svg])[2]
+
+# Game
+${}
 
 *** Keywords ***
 Abrir Navegador com a Página do IDEAL Game
@@ -120,5 +132,39 @@ Clicar em Novo Jogo
     [Documentation]    Esta Keyword clica no botão de novo jogo
     Click Button                     ${new_Game_Button}
 
+# Configuração
 Verificar Tela de Configuração
-    [Documentation]    Verifica os elementos da tela de configuração ao clicar em novo jogo
+    [Documentation]    Verifica os elementos da tela de configuração ao clicar em novo jogo.
+    
+    Wait Until Element Is Visible    ${card_Selection_Mode}
+    Wait Until Element Is Visible    ${selection_Actor}
+
+Selecionar Modo Personalizado
+    [Documentation]    Em modo de seleção de cartas irá escolher a opção de modo personalizado.
+
+    Select From List By Value        ${card_Selection_Mode}    Personalizado
+
+Selecionar Ator Personalizado Jogador Um
+    [Documentation]    Seleciona o ator do jogador um
+
+    Select From List By Value        ${selection_Actor}        Protetor da natureza
+
+Selecionar Objetivo Jogador Um
+    [Documentation]    Seleciona o objetivo do jogador um
+
+    Select From List By Value        ${selection_Objective}    Culturas sustentáveis
+
+Selecionar Ator Jogador Dois
+    [Documentation]    Selecionar o ator do jogador dois       
+
+    Select From List By Value        ${selection_Objective}    Agricultor sustentável
+
+Selecionar Objetivo Jogador Dois
+    [Documentation]    Seleciona o objetivo do jogador dois
+
+    Select From List By Value        ${selection_Objective}    Florestas
+
+Clicar em Aplicar
+    [Documentation]    Clicar no botão de aplicar na tela de configuração
+
+    Click Button                     ${apply_Button}

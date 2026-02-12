@@ -8,6 +8,6 @@ Tentando Realizar Login com Credenciais Inválidas
     [Documentation]    Valida se o usuário consegue logar com credenciais inválidas.
     Trocando Linguagem Para PT BR
     Ir Para a Tela de Login
-    Preencher campos de Login e Senha    xxxxxxxxxxx    xxxxxxxxxxxx
+    Preencher campos de Login e Senha    xxxxxxxxxxx@dcx.ufpb.br    xxxxxxxxxxxx
     Clicar no botão de Login
     Verificar Mensagem de Credenciais Inválidas
